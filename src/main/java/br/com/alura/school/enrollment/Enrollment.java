@@ -1,4 +1,4 @@
-package br.com.alura.school.enroll;
+package br.com.alura.school.enrollment;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -22,11 +22,11 @@ public class Enrollment {
 	private Long id;
 
 	@ManyToOne
-	@JoinColumn(name = "user_id", referencedColumnName = "id")
+	@JoinColumn(name = "user_id")
 	private User user;
 
 	@ManyToOne
-	@JoinColumn(name = "course_id", referencedColumnName = "id")
+	@JoinColumn(name = "course_id")
 	private Course course;
 	
 	@Column(nullable = false, name = "enroll_date")

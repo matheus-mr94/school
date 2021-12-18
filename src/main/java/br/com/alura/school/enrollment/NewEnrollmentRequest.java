@@ -1,4 +1,4 @@
-package br.com.alura.school.enroll;
+package br.com.alura.school.enrollment;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import br.com.alura.school.enroll.Enrollment;
+import br.com.alura.school.enrollment.Enrollment;
 
 @Entity
 public class User {
@@ -54,6 +54,10 @@ public class User {
 
 	public String getEmail() {
 		return email;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 }

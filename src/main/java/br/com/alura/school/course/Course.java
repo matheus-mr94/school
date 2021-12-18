@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import br.com.alura.school.enroll.Enrollment;
+import br.com.alura.school.enrollment.Enrollment;
 
 @Entity
 public class Course {
