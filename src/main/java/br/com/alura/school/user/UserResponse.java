@@ -2,7 +2,7 @@ package br.com.alura.school.user;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-class UserResponse {
+public class UserResponse {
 
     @JsonProperty
     private final String username;
@@ -10,7 +10,7 @@ class UserResponse {
     @JsonProperty
     private final String email;
 
-    UserResponse(User user) {
+    public UserResponse(User user) {
         this.username = user.getUsername();
         this.email = user.getEmail();
     }

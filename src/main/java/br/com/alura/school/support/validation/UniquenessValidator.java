@@ -6,14 +6,14 @@ import javax.persistence.EntityManager;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-class UniquenessValidator implements ConstraintValidator<Unique, Object> {
+public class UniquenessValidator implements ConstraintValidator<Unique, Object> {
 
     private Class<?> entity;
     private String field;
 
     private final EntityManager entityManager;
 
-    UniquenessValidator(EntityManager entityManager) {
+    public UniquenessValidator(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
