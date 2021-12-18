@@ -36,7 +36,7 @@ public class Course {
     
     @JsonIgnore
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    private List<Enrollment> coursesEnrollments;
+    private List<Enrollment> courseEnrollments;
 
     private String description;
 

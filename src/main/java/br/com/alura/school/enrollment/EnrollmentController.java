@@ -4,12 +4,16 @@ import static java.lang.String.format;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -52,5 +56,25 @@ public class EnrollmentController {
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 		
 	}
-
+	
+	@GetMapping("/courses/enroll/report")
+	public ResponseEntity<List<EnrollmentResponse>> getReports(){
+		List<User> users = userRepository.findAll();
+		List<EnrollmentResponse> reportsList = new ArrayList<>();
+		
+		for (User user : users) {
+			List<Enrollment> enrollments = enrollmentRepository.findByUser(user);
+			if(!enrollments.isEmpty()) {
+				reportsList.add(new EnrollmentResponse(user.getEmail(), enrollments.size()));
+			}
+		}
+		
+		if(reportsList.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		
+		reportsList.sort(Comparator.comparing(EnrollmentResponse::getEnrollmentQuantity).reversed());
+		return ResponseEntity.ok(reportsList);
+	}
+	
 }

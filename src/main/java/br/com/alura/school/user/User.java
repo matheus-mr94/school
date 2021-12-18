@@ -37,7 +37,7 @@ public class User {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<Enrollment> usersEnrollments;
+	private List<Enrollment> userEnrollments;
 
 	@Deprecated
 	protected User() {
